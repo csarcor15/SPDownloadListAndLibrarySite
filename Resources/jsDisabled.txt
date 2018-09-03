@@ -1,0 +1,78 @@
+﻿var cambiarUrl = document.getElementById("ctl00_PlaceHolderMain_HyNombre");
+
+if(EmptyDoc(cambiarUrl) == false)
+{
+	var URLLocal= cambiarUrl.href;
+	var resultadoURL = URLLocal.split("/");
+	var nuevaURL ="../Documentos/" + resultadoURL[resultadoURL.length-1];
+	cambiarUrl.setAttribute('href',nuevaURL);
+}
+
+var inputs = document.getElementsByTagName("INPUT");
+for (var i = 0; i < inputs.length; i++) {
+
+	if (inputs[i].type === 'submit') 
+	{
+        inputs[i].disabled = true
+		inputs[i].style.visibility="hidden";
+    }else if (inputs[i].type === 'file') {
+        inputs[i].disabled = true;
+		inputs[i].style.visibility="hidden";
+    }
+	else
+	{
+        inputs[i].disabled = true;
+	}
+}
+
+var inputsAreaText = document.getElementsByTagName("textarea");
+for (var i = 0; i < inputsAreaText.length; i++) {    
+        inputsAreaText[i].disabled = true;
+		inputsArea[i].readOnly = true;
+}
+
+var inputsImg = document.getElementsByTagName("img");
+for (var j = 0; j< inputsImg.length; j++) {    
+	     var filename = inputsImg[i].src.replace(/^.*[\\\/]/, '');
+        inputsImg[i].src = "../../formularios/SiteFolderInfopath/" + filename
+}
+
+var rowsDocs = document.querySelectorAll('td#SPFieldFile>a');
+for(var i = 0, l = rowsDocs.length; i < l; i++) {
+  var el = rowsDocs[i];
+  rowsDocs = el.href.split("/");el.href = "../Documentos/" + rowsDocs[rowsDocs.length-1];
+}
+
+var rowsSiteLinks = document.querySelectorAll('.ms-peopleux-vanillaUser>a');
+for(var i = 0, l = rowsSiteLinks.length; i < l; i++) {
+  var elLinks = rowsSiteLinks[i];
+  elLinks.href = "#";
+}
+
+
+function EmptyDoc(pVariable)
+{
+	var result = false;
+
+	if(pVariable === undefined)
+	{
+		result= true;
+	}else if(pVariable === null)
+	{
+		result= true;
+	}
+	else if(pVariable === "")
+	{
+		result= true;
+	}
+	else if(pVariable === NaN)
+	{
+		result= true;
+	}
+	else if(pVariable.length <= 0)
+	{
+		result= true;
+	}
+
+	return result;
+}

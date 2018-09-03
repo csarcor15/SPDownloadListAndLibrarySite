@@ -1,0 +1,19 @@
+﻿.s4-notdlg,#suiteBarLeft,.myModals,#suiteBar,#suiteBarRight,#topnavbar,#DeltaTopNavigation,
+#DeltaPlaceHolderSearchArea,.LeftContainer,.BreadCurrentNode,#DeltaSiteLogo,.BreadCurrentNode,.LeftContainer,
+#s4-ribbonrow,.ms-ButtonHeightWidth,.ms-toolbar>img,#_spFocusHere,.ms-separator,.ms-informationbar,#_InfoPath_WaitUI,#RibbonContainer
+{
+	display:none!important;
+}
+
+input[type="button" i]:disabled, input[type="submit" i]:disabled, input[type="reset" i]:disabled, input[type="file" i]:disabled::-webkit-file-upload-button, button:disabled {
+    display:none!important;
+}
+
+body #s4-workspace {
+    min-width: 1024px !important;
+    height: 100%!important;
+}
+select
+{
+    pointer-events: none;
+}
